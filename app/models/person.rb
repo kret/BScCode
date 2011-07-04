@@ -3,4 +3,8 @@ class Person < ActiveRecord::Base
 
   has_many :contributions,  :dependent => :destroy
   has_many :books,          :through => :contributions
+
+  def display_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

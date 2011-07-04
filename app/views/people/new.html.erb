@@ -1,0 +1,9 @@
+<h1>Nowa osoba</h1>
+
+<%= form_for @person do |f| %>
+  <%= f.label :first_name, "Imię" %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name, "Nazwisko" %>
+  <%= f.text_field :last_name %>
+  <%= f.submit "Dodaj" %>
+<% end %>
