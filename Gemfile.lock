@@ -1,8 +1,7 @@
-GIT
-  remote: git://github.com/kret/rails3-jquery-autocomplete.git
-  revision: 1ecec5bceb5ed93e383b543b31ae9a2d0157e5df
+PATH
+  remote: /Users/andreskee/Development/MyProjects/rails3-jquery-autocomplete
   specs:
-    rails3-jquery-autocomplete (0.7.4)
+    rails3-jquery-autocomplete (0.8.0)
       rails (~> 3.0)
       yajl-ruby
 
@@ -87,7 +86,7 @@ GEM
       thor (~> 0.14.4)
     raindrops (0.7.0)
     rake (0.9.2)
-    rdoc (3.7)
+    rdoc (3.8)
     rmagick (2.13.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
@@ -117,7 +116,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    unicorn (4.0.0)
+    unicorn (4.0.1)
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
