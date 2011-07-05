@@ -1,0 +1,91 @@
+.description:first-letter {
+	display: block;
+	float: left;
+	font-family: 'OFL Sorts Mill Goudy TT'; font-size: 42px;
+	line-height: .8em;
+	margin-right: 3px; margin-top: 7px;
+}
+.description p  { 
+	font-size: 14px;
+}
+dl.edition
+{
+	padding: 0;
+	margin: 1em 0;
+}
+
+dl.edition dt
+{
+	display : inline-block;
+	clear: left;
+	width: 119px;
+	margin: 0;
+	padding: 0px;
+}
+
+dl.edition dd
+{
+	display : inline-block;
+	width: 200px;
+	margin: 0;
+	padding: 0px;
+}
+
+
+
+.book-details .main-column { }
+
+.book-details .favorite { margin-right:12px; float:left; -webkit-border-radius: 29px; height: 58px; width: 58px; background-position: 0px 0; }
+.book-details .favorite.click:hover { background-position: -100px 0; }
+
+.book-details h1 { margin-top: 7px; text-align: left; }	
+
+.user-book-details { text-align: left; }
+
+.user-book-details .do-like { -webkit-border-radius: 23px; height: 46px; width: 46px; background-position: 0px -200px; }
+.user-book-details .do-like.click:hover { background-position: -100px -200px; }
+
+.user-book-details .do-not-like { -webkit-border-radius: 23px; height: 46px;width: 46px; background-position: 0px -100px; margin-right:10px; }
+.user-book-details .do-not-like.click:hover { background-position: -100px -100px; }
+
+/* 0. unselected */
+.user-book-details .tag { cursor: pointer; font-weight: bold; color: white; display: inline-block; background: #CCCAC7; padding: 2px 10px; margin: 3px; -webkit-border-radius: 10px; }
+/* 1. not clicked hover */
+.user-book-details .tag:hover 
+	{ background-color: #D0BB99; box-shadow: 1px 1px 2px 0px #AAAAAA; }
+/* 2. clicked hover */
+.user-book-details .tag.click:hover 
+	{ background-color: #D3B078 !important; box-shadow: 3px 3px 2px 0px rgba(102, 102, 102, 0.35) inset !important; }
+/* 3. selected hover */
+.user-book-details .tag.selected:hover { background-color: #D6A558; box-shadow: 1px 1px 2px 0px #AAAAAA; }
+/* 4. selected */
+.user-book-details .tag.selected { background-color: #e0cdaf;  box-shadow: 2px 2px 2px 0px rgba(102, 102, 102, 0.35) inset !important;}
+
+.book-details {
+	float: left
+}
+.descr-column {
+	width:220px;
+	margin: 0px 10px 0 10px;
+	display:inline;
+	float: left;
+	position: relative;		
+}
+	.main-column { margin-left: 10px; width: 380px; text-align: justify; float: right; 
+	
+margin-left: 10.0px;
+margin-right: 10.0px;
+
+	}
+	.add-column {  text-align: justify;width :300px; float:left; margin-left: 10.0px;
+margin-right: 10.0px;
+}
+
+	img.cover { width: 220px; }
+	img.mini { width: 50px; margin-left: 4px; padding: 0;  }
+
+.other-publications {
+	margin: 5px 0 0 0;
+	padding: 0;
+	list-style: none;
+}

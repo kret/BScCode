@@ -1,0 +1,71 @@
+<% content_for :title do %>
+  <%= @book.title %> - <%= pretty_print @book.authors, :with_links => false %>
+<% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "book" %>
+<% end %>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag "ui.toggleButton" %>
+<% end %>
+
+
+<div class="book-details container_12">
+	<div class="main-column">
+		<a class="button favorite" title="Dodaj do ulubionych"></a>
+		<h1 class="h"><%= @book.title %></h1>
+		<h6 class="d"><strong>Autor:</strong> <%= pretty_print @book.authors %></h6>
+		<div class="description">
+		<p>
+Maecenas feugiat, lorem lobortis sagittis feugiat, est ante scelerisque enim, nec ultricies ante quam ut velit. Sed at neque purus. Sed rhoncus urna dui, vel aliquam leo. Integer sit amet mi sit amet dolor adipiscing dignissim sit amet eu orci. Etiam eleifend rhoncus interdum. Morbi turpis nulla, semper non dignissim non, facilisis non eros. Curabitur dapibus gravida diam, a ullamcorper nulla convallis vitae. Nullam est leo, facilisis ut tincidunt quis, condimentum eu risus. Aliquam felis magna, pretium vel dignissim vel, mollis ut ligula. Vestibulum et ultrices velit. Duis nunc nisl, suscipit quis auctor nec, auctor sed ligula. Mauris cursus euismod ultricies. Mauris accumsan nulla eget libero varius vel malesuada ante sagittis. Etiam non felis ac ipsum posuere rhoncus id ut lacus. Curabitur malesuada varius orci sed commodo.
+    </p>
+		<p>
+Nunc ac leo orci, rhoncus interdum mi. Quisque dignissim nulla eu dolor tempor hendrerit. Pellentesque ac nunc id turpis aliquam tempor. Aliquam nisl nunc, vestibulum ac vulputate ut, tincidunt quis risus. Suspendisse varius, sapien nec dapibus aliquam, turpis leo congue felis, eu pretium nisi ipsum eu nisi. Fusce faucibus dapibus dolor. Sed sem nulla, egestas ac fringilla sed, sollicitudin sed neque. Integer sollicitudin bibendum accumsan. Pellentesque porttitor dui vitae nibh hendrerit sagittis ultrices dolor rhoncus. Etiam metus tortor, venenatis vitae consequat in, vestibulum vitae orci. Nullam odio massa, adipiscing ornare posuere vel, pellentesque vel ipsum. Vivamus sit amet metus risus.
+    </p>
+		</div>
+		<img src="/stylesheets/images/editions_show.png" />
+	</div>
+	<div class="descr-column">
+		<img class="cover" src="/stylesheets/images/cover.png" />
+		<img class="mini" src="/stylesheets/images/page.png" 
+		/><img class="mini" src="/stylesheets/images/page.png"
+		/><img class="mini" src="/stylesheets/images/page.png"
+		/><img class="mini" src="/stylesheets/images/page.png"
+		/><img class="mini" src="/stylesheets/images/page.png"
+		/><img class="mini" src="/stylesheets/images/page.png"
+		/><img class="mini" src="/stylesheets/images/page.png"
+		/><img class="mini" src="/stylesheets/images/page.png" />
+
+		<h5></h5>
+		<img src="/stylesheets/images/categories_show.png" />
+		<h5></h5>
+		<img src="/stylesheets/images/tags_show.png" />
+	</div>
+</div>
+<div class="add-column">
+	<div class="user-book-details">
+		<h5>Społeczność</h5>
+		<a class="button do-not-like selected"></a><a class="button do-like"></a>
+		<div>
+			<span class="help">Oznacz książkę aby w przyszłości łatwiej ją znaleźć</span>
+			<span class="button tag">Mam</span>
+			<span class="button tag selected">Nie&nbsp;mam</span>
+			<span class="button tag">Oddam</span>
+			<span class="button tag">Chcę&nbsp;przeczytać</span>
+			<span class="button tag selected">Nie&nbsp;chcę&nbsp;przeczytać</span>
+		</div>
+	</div>
+
+	<h5>Powiązane książki</h5>
+	<ul class="other-publications">
+		<li>Nullam at enim ut leo dictum laoreet</li>
+		<li>In consectetur magna quis mi sodales consectetur</li>
+		<li>Sed eu neque magna, ac porttitor massa</li>
+		<li>Morbi vel odio ut metus placerat porta</li>
+		<li>In eu dolor ipsum, in hendrerit sem</li>
+	</ul>
+	<h5>Reklamy</h5>
+	<img src="/stylesheets/images/add.png" />
+
+</div>
