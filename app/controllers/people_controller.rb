@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  autocomplete :person, :last_name, :full => true, :scope => :full_name_containing, :display_value => :display_name
 
   def new
     @person = Person.new

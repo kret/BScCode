@@ -1,4 +1,11 @@
 pl:
+  book:
+    flash:
+      created_successfully: "Dodano nową książkę."
+    validation:
+      au_ids:
+        record_not_valid: "Niewłaściwe ID autorów."
+
   person:
     flash:
       created_successfully: "Osoba została dodana."

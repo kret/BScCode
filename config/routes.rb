@@ -1,6 +1,11 @@
 BScCode::Application.routes.draw do
 
-  resources :people, :only => [:new, :create, :show] #, :as => :person
+  resources :books, :only => [:new, :create, :show]
+  resources :people, :only => [:new, :create, :show] do
+    collection do
+      get :autocomplete_person_last_name
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

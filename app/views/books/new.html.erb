@@ -1,0 +1,145 @@
+<% content_for :title do %>
+  dodaj nową książkę
+<% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jquery-ui-1.8.11.custom", "book-add" %>
+<% end %>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag :jquery_ui %>
+<% end %>
+
+
+<div>
+	<div class="info">
+		Obszar pomocy kontekstowej
+	</div>
+	<%= form_for @book, :html => { :id => "book-details" } do |f| %>
+	  <%= f.label :title, "Tytuł" %><%= f.text_field :title, :required => true %>
+	  <%= f.label :original_title, "Tytuł oryginału" %><%= f.text_field :original_title %>
+		<label for="a">Autorzy</label><input class="book_au_ids" id="a" type="text"> <%= link_to "Nowy", nil, :id => "person-add" %>
+<%#--{ status: error, [{element: title, error_code: 7, error_text: "Taki wpis jest już w bazie"}]--%>
+		<div id="book-author-details">
+			<ul id="book-author-details-list"></ul>
+		</div>
+		
+		<div title='Dodaj nową osobę' id="dialog">
+			<dl>
+			<dt><label for="name">Imię</label></dt><dl><input name="person[first_name]" id="name" type="text"></dl>
+			<dt><label for="lastname">Nazwisko</label></dt><dl><input name="person[last_name]" id="lastname" type="text"></dl>
+		</div>
+	<% end %>
+	<img src="/stylesheets/images/categories.png" style="margin: 0 10px;"><img src="/stylesheets/images/tags.png" style="margin: 0 10px;">
+</div>
+
+<div>
+	<input id="go-go" type="submit">
+</div>
+
+<img src="/stylesheets/images/editions.png">
+
+<script>
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	modal: true,
+	buttons : {
+		'Dodaj' : 
+		function() { 
+			var name = jQuery('#name').val();
+			var lastname = jQuery('#lastname').val();
+			
+			$.ajax({
+				type: 'POST',
+				url: '/people.json',
+				data: {
+					'person[first_name]': name,
+					'person[last_name]': lastname
+				},
+				success: function( data ,x, y,z ) {
+					$( "<li id=person-"+data.person.id+">" + data.person.first_name + ' ' + data.person.last_name + '<a class=delete>x</a></li>' )
+						.appendTo( "#book-author-details-list" );
+				},
+				error: function(e,x,y,z) {
+					console.log('error',e,x,y,z);
+				}
+			});
+		
+			$( this ).dialog( "close" ); }
+		}
+});
+
+jQuery('#person-add').click(function() {
+	//adding new person
+	$( "#dialog" ).dialog( "open" );
+	return false;
+	
+});
+
+$(function() {
+	function log( message, id ) {
+		if (!jQuery("#book-author-details-list")[0])
+			jQuery("#book-author-details").html('<ul id=book-author-details-list></ul>');
+		$( "<li id=author-"+id+">" + message + '<a class=delete>x</a></li>' ).appendTo( "#book-author-details-list" );
+	}
+
+	$( "#a" ).autocomplete({
+		source: function( request, response ) {
+			$.ajax({
+				url: "/people/autocomplete_person_last_name",
+				dataType: "json",
+				data: {
+					term: request.term
+				},
+				success: function(data) {
+        	response(data);
+        },
+        error: function(e,x,y) { 
+        	console.log('error', e,x,y); 
+        }
+			});
+		},
+		minLength: 2,
+		select: function( event, ui ) {
+			log( ui.item ?
+				ui.item.label :
+				"Nothing selected, input was " + this.value, ui.item.id);
+		},
+		open: function() {
+			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+		},
+		close: function() {
+			$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+		}
+	});
+});	
+
+$( '#go-go' ).bind('click', function() {
+		var authors = [];
+		$('#book-author-details-list li').each(function() {
+			authors.push(this.id.replace('author-', ''));
+		})
+
+		var books = {
+			book : {
+				title : $('#book_title').val(),
+				original_title : $('#book_original_title').val(),
+				au_ids : authors
+			}
+		};
+		console.log(books)
+		
+		$.ajax({
+					type: 'POST',
+					url: '/books/',
+					data: books,
+					success: function( data ,x, y,z ) {
+				  		console.log('success',x,y,z);
+				  	},
+				  	error: function(e,x,y,z) {
+				  		console.log('error',e,x,y,z);
+				  	}
+		});
+});
+</script>

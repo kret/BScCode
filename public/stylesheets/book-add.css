@@ -1,0 +1,79 @@
+#book-details {
+	width: 380px; 
+	margin: 0px 10px 10px 10px; 
+	float:left;
+}
+#book-details label {
+	width: 100px;
+	text-align: right;
+	display: inline-block;
+}
+#book-details input[type=text] {
+	width: 200px;
+	margin-left: 10px;
+}
+#book-details #book-author-details {
+	margin-left: 109px;
+	width: 204px;
+	padding: 0px 0 5px 0px;
+}
+
+#book-details #book-author-details ul {
+	margin: 0;
+	list-style: none;
+	padding: 0;
+}
+#book-details #book-author-details li {
+	margin: 2px 0;
+	border-radius: 6px;
+	border: 1px solid #DCDCDC;
+	padding: 4px 8px 4px 12px;
+	background: #EEEEEE url('/stylesheets/images/grip.png') 2px 4px no-repeat;
+}
+
+#book-author-details-list {
+	list-style: none;
+}
+
+
+.edition-details {
+	width: 300px;
+	margin: 0px 10px;
+	float:left
+}
+.edition-details dt {
+	float: left;
+	clear: left;
+	width: 100px;
+	text-align: right;
+}
+.edition-details dd {
+	float: left;
+}
+.edition-details input {
+	width: 150px;
+}
+.edition-details input.dim-x {
+	width: 50px;
+	margin: 0 5px 0 0;
+}
+.edition-details input.dim-y {
+	width: 50px;
+	margin: 0px 5px;
+}
+.delete {
+/*	color: white;
+	background-color: Silver;
+	border-radius: 6px;
+	text-align: center;
+	line-height: 8px; height: 12px; width: 12px; display: inline-block;
+	font-size: 12px;
+	margin: 0px 10px 0px 2px;
+*/	float: right;
+}
+.buttons {
+	clear: both;
+}
+.tabs {
+	width: 620px; padding: 0; border: none; margin: 0px 10px; float:left;
+}
