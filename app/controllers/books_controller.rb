@@ -26,4 +26,37 @@ class BooksController < ApplicationController
   def show
     @book = Book.find params[:id]
   end
+
+  def get_preferences
+    book = Book.find params[:id]
+    user = User.find params[:user_id]
+    if user.id == 1
+      prefs = Preference.find_for_book_and_user book, user
+      render :json => { :status => :ok, :preferences => prefs }
+    else
+      render :json => { :status => :invalid }
+    end
+  end
+
+  def set_preferences
+    book = Book.find params[:id]
+    user = User.find params[:user_id]
+    if user.id == 1
+      pv = ActiveSupport::JSON.decode params[:preferences] || ""
+      prefs = Preference.find_for_book_and_user book, user
+      if prefs.empty?
+        prefs = Preference.new pv
+      else
+        prefs = prefs.first
+        prefs.update_attributes pv
+      end
+      if prefs.save
+        render :json => { :status => :ok, :preferences => prefs }
+      else
+        render :json => { :status => :invalid, :errors => prefs.errors }
+      end
+    else
+      render :json => { :status => :invalid }
+    end
+  end
 end

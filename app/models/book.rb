@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   has_many :contributions,  :dependent => :destroy
   has_many :authors,        :through => :contributions,
                             :source => :person
+  has_many :preferences,    :dependent => :destroy
 
   validate :au_ids, :valid_au_ids
   after_validation :make_builds

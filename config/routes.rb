@@ -1,6 +1,12 @@
 BScCode::Application.routes.draw do
 
-  resources :books, :only => [:new, :create, :show]
+  resources :books, :only => [:new, :create, :show] do
+    member do
+      post :get_preferences
+      post :set_preferences
+    end
+  end
+
   resources :people, :only => [:new, :create, :show] do
     collection do
       get :autocomplete_person_last_name
