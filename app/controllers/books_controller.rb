@@ -33,7 +33,8 @@ class BooksController < ApplicationController
     user = User.find 1
     if user.id == 1
       prefs = Preference.find_for_book_and_user book, user
-      render :json => { :status => :ok, :preferences => prefs }
+      to_send = prefs.first.attributes.except "id", "created_at", "updated_at", "book_id", "user_id"
+      render :json => { :status => :ok, :preferences => to_send }
     else
       render :json => { :status => :invalid }
     end
