@@ -48,6 +48,8 @@ class BooksController < ApplicationController
       prefs = Preference.find_for_book_and_user book, user
       if prefs.empty?
         prefs = Preference.new pv
+        prefs.user = user
+        prefs.book = book
       else
         prefs = prefs.first
         prefs.update_attributes pv
