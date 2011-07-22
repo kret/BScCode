@@ -29,7 +29,8 @@ class BooksController < ApplicationController
 
   def get_preferences
     book = Book.find params[:id]
-    user = User.find params[:user_id]
+    # for demo hardcoding is good enough; normally this would be taken from session
+    user = User.find 1
     if user.id == 1
       prefs = Preference.find_for_book_and_user book, user
       render :json => { :status => :ok, :preferences => prefs }
@@ -40,7 +41,8 @@ class BooksController < ApplicationController
 
   def set_preferences
     book = Book.find params[:id]
-    user = User.find params[:user_id]
+    # for demo hardcoding is good enough; normally this would be taken from session
+    user = User.find 1
     if user.id == 1
       pv = ActiveSupport::JSON.decode params[:preferences] || ""
       prefs = Preference.find_for_book_and_user book, user
