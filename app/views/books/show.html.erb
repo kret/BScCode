@@ -6,7 +6,10 @@
   <%= stylesheet_link_tag "book" %>
 <% end %>
 
-<% content_for :scripts do %>
+<% content_for :bottom_scripts do %>
+  <script>
+    var bookId = <%= @book.id %>;
+  </script>
   <%= javascript_include_tag "ui.toggleButton" %>
 <% end %>
 
@@ -24,36 +27,36 @@ Maecenas feugiat, lorem lobortis sagittis feugiat, est ante scelerisque enim, ne
 Nunc ac leo orci, rhoncus interdum mi. Quisque dignissim nulla eu dolor tempor hendrerit. Pellentesque ac nunc id turpis aliquam tempor. Aliquam nisl nunc, vestibulum ac vulputate ut, tincidunt quis risus. Suspendisse varius, sapien nec dapibus aliquam, turpis leo congue felis, eu pretium nisi ipsum eu nisi. Fusce faucibus dapibus dolor. Sed sem nulla, egestas ac fringilla sed, sollicitudin sed neque. Integer sollicitudin bibendum accumsan. Pellentesque porttitor dui vitae nibh hendrerit sagittis ultrices dolor rhoncus. Etiam metus tortor, venenatis vitae consequat in, vestibulum vitae orci. Nullam odio massa, adipiscing ornare posuere vel, pellentesque vel ipsum. Vivamus sit amet metus risus.
     </p>
 		</div>
-		<img src="/stylesheets/images/editions_show.png" />
+		<img src="/stylesheets/images/editions_show.png" width="380" height="160" />
 	</div>
 	<div class="descr-column">
-		<img class="cover" src="/stylesheets/images/cover.png" />
-		<img class="mini" src="/stylesheets/images/page.png" 
-		/><img class="mini" src="/stylesheets/images/page.png"
-		/><img class="mini" src="/stylesheets/images/page.png"
-		/><img class="mini" src="/stylesheets/images/page.png"
-		/><img class="mini" src="/stylesheets/images/page.png"
-		/><img class="mini" src="/stylesheets/images/page.png"
-		/><img class="mini" src="/stylesheets/images/page.png"
-		/><img class="mini" src="/stylesheets/images/page.png" />
+		<img class="cover" src="/stylesheets/images/cover.png" width="220" height="320" />
+		<img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70"
+		/><img class="mini" src="/stylesheets/images/page.png" width="50" height="70" />
 
 		<h5></h5>
-		<img src="/stylesheets/images/categories_show.png" />
+		<img src="/stylesheets/images/categories_show.png" width="220" height="150" />
 		<h5></h5>
-		<img src="/stylesheets/images/tags_show.png" />
+		<img src="/stylesheets/images/tags_show.png" width="220" height="190" />
 	</div>
 </div>
 <div class="add-column">
 	<div class="user-book-details">
 		<h5>Społeczność</h5>
-		<a class="button do-not-like selected"></a><a class="button do-like"></a>
-		<div>
-			<span class="help">Oznacz książkę aby w przyszłości łatwiej ją znaleźć</span>
-			<span class="button tag">Mam</span>
-			<span class="button tag selected">Nie&nbsp;mam</span>
-			<span class="button tag">Oddam</span>
-			<span class="button tag">Chcę&nbsp;przeczytać</span>
-			<span class="button tag selected">Nie&nbsp;chcę&nbsp;przeczytać</span>
+		<a class="button do-not-like"></a><a class="button do-like"></a>
+		<div class="user-book-preferences">
+			<span class="help">Oznacz książkę aby w przyszłości łatwiej ją znaleźć</span><br />
+      <label class="button tag" for="possesses_true">Mam</label><input type="checkbox" value="true" name="possesses" id="possesses_true" />
+      <label class="button tag" for="possesses_false">Nie mam</label><input type="checkbox" value="false" name="possesses" id="possesses_false" />
+      <label class="button tag" for="wants_to_read_true">Chcę przeczytać</label><input type="checkbox" value="true" name="wants_to_read" id="wants_to_read_true" />
+      <label class="button tag" for="wants_to_read_false">Nie chcę przeczytać</label><input type="checkbox" value="false" name="wants_to_read" id="wants_to_read_false" />
+      <label class="button tag" for="wants_to_give_away_true">Oddam</label><input type="checkbox" value="true" name="wants_to_give_away" id="wants_to_give_away_true" /><br />
 		</div>
 	</div>
 
@@ -66,6 +69,6 @@ Nunc ac leo orci, rhoncus interdum mi. Quisque dignissim nulla eu dolor tempor h
 		<li>In eu dolor ipsum, in hendrerit sem</li>
 	</ul>
 	<h5>Reklamy</h5>
-	<img src="/stylesheets/images/add.png" />
+	<img src="/stylesheets/images/add.png" width="300" height="200" />
 
 </div>

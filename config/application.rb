@@ -32,8 +32,8 @@ module BScCode
 
     # JavaScript files you want as :defaults (application.js is always included).
     #config.action_view.javascript_expansions[:defaults] = %w(jquery jquery_ujs)
-    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.5.1 rails)
-    config.action_view.javascript_expansions[:jquery_ui] = %w(ui/jquery.ui.core ui/jquery.ui.widget ui/jquery.ui.position ui/jquery.ui.autocomplete ui/jquery.ui.dialog)
+    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.5.1.min rails)
+    config.action_view.javascript_expansions[:jquery_ui] = %w(jquery-ui-1.8.14.custom.min)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

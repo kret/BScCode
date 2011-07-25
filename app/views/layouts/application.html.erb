@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width">
 	<meta charset="utf-8">
   <title>BookWeb<% if content_for? :title %> - <%= yield :title %><% end %></title>
-  <%= stylesheet_link_tag "main.css" %>
+  <%= stylesheet_link_tag "main" %>
   <%= yield :head if content_for? :head %>
   <%= javascript_include_tag :defaults %>
   <%= yield :scripts if content_for? :scripts %>
@@ -16,5 +16,6 @@
   <%= render 'layouts/header' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
+  <%= yield :bottom_scripts if content_for? :bottom_scripts %>
 </body>
 </html>

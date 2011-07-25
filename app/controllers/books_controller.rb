@@ -5,14 +5,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    book_hash = {}
-    if params[:book][:book_json]
-      bj = params[:book].delete :book_json
-      book_hash = ActiveSupport::JSON.decode bj unless bj.blank?
-    end
-    book_hash.merge! params[:book]
-
-    @book = Book.new book_hash
+    @book = Book.new params[:book]
     if @book.save
       redirect_to @book, :notice => t('book.flash.created_successfully')
     else
@@ -33,7 +26,8 @@ class BooksController < ApplicationController
     user = User.find 1
     if user.id == 1
       prefs = Preference.find_for_book_and_user book, user
-      to_send = prefs.first.attributes.except "id", "created_at", "updated_at", "book_id", "user_id"
+      to_send = {}
+      to_send = prefs.first.attributes.except("id", "created_at", "updated_at", "book_id", "user_id") unless prefs.nil? || prefs.first.nil?
       render :json => { :status => :ok, :preferences => to_send }
     else
       render :json => { :status => :invalid }

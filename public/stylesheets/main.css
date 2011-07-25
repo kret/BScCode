@@ -52,15 +52,16 @@ body {
 ------------------------------------------------------------------------------------ */
 
 h1 { font-size: 36px; margin: 0; line-height:100%; font-weight: normal; font-family: 'OFL Sorts Mill Goudy TT'}
+/*
 h2 { font-size: 24px; font-weight: normal;}
 h3 { font-size: 21px; }
-h4 { font-size: 18px; }
-h5 { font-size: 16px; margin-bottom: 0px; }
+h4 { font-size: 16px; margin-bottom: 0px; }
+*/
+h5 { font-size: 12px; margin-bottom: 0px; }
 h6 { font-size: 12px; margin: 0px; }
 
 strong { font-weight: bold; color: Black; }
 
-input[type='text'] { border: 0px solid; box-shadow: 0 0 0px 1px #AAA8A5; }
 
 
 /** links 
@@ -69,9 +70,6 @@ input[type='text'] { border: 0px solid; box-shadow: 0 0 0px 1px #AAA8A5; }
 a { color: #C79129; text-decoration:none; cursor: pointer; }
 a:hover { text-decoration:underline; }
 
-#logo { color: Black/*#81844bae956c*/; font-family: 'Lobster', serif; font-size: 50px; float:left; /* fixed refresh bug */ }
-a#logo:hover { color: #C79129; text-decoration: none; width: 200px;}
-a#logo:hover:after { color: #81844b;letter-spacing:2px; position:relative; top: -14px; left: 7px;content: 'Przejdź do strony głównej'; float: left; font: 10px Cantarell;  }
 
 
 /** layout 
@@ -82,26 +80,11 @@ body {
 	margin: 4px auto;
 }
 
-header { border-bottom : 1px solid #CCCAC7; margin-bottom: 20px;  height: 64px; }
-header nav { float:right; color: #CCCAC7; text-align: right; }
-header nav #search input[type='search'] { margin: 20px 5px 0px; width: 200px; }
-header nav #search input[type='submit'] { width: 80px; }
-header nav #search { margin-left: 30px; display: inline; }
-
-header nav .main-element { margin: 0px 10px; color: #6e4533; font-size: 140%; }
 
 footer { clear:both; border-top : 1px solid #CCCAC7; padding-top: 5px; margin-top: 20px; text-align:center;}
 
 /** common ui widgets 
 ------------------------------------------------------------------------------------ */
-	
-	.ui-cloud .tag { margin: 0px 5px; line-height: 0.7em }
-	a.tag.s1 { color: #5d5d5d; font-size: 12px; }
-	a.tag.s2 { color: #303030; font-size: 13px; }
-	a.tag.s3 { color: #030303; font-size: 14px; }
-	a.tag.s4 { color: #808080; font-size: 18px; }
-	a.tag.s5 { color: #3e3e3e; font-size: 19px; }
-	a.tag.s6 { color: #020202; font-size: 20px; }
 	
 	
 	.help { color: #CCCAC7; }
@@ -125,21 +108,6 @@ footer { clear:both; border-top : 1px solid #CCCAC7; padding-top: 5px; margin-to
 ---------------------------------------------------------------------- */
 @media (min-device-width:1024px) and (max-width:989px), screen and (max-device-width:480px), (max-device-width:480px) and (orientation:landscape), (min-device-width:481px) and (max-device-width:1024px) and (orientation:portrait) {
 	/* iOS === 320px!! */
+	header { display : none }
 	body { width:340px; margin: 20px 10px; }
-	.main-column , .descr-column , .add-column { display: block; width: 320px; float: none; padding-bottom: 1em;margin: 0px 0px 2em 0px; border-bottom: 2px solid Grey; }
-	.book-details, .add-column { float: none; }
-	img.cover { width: 320px }
 }
-
-
-
-
-
-
-
-
-
-
-
-.edition-zone {clear: both; padding-top: 0px; border-top: 1px solid Silver }
-.edition {clear: both; padding-top: 20px; margin-top: 20px;margin-bottom: 20px; border-top: 1px solid Silver }
