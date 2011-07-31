@@ -33,11 +33,11 @@
 			<dt><label for="lastname">Nazwisko</label></dt><dl><input name="person[last_name]" id="lastname" type="text"></dl>
 		</div>
 	<% end %>
-	<img src="/stylesheets/images/categories.png" width="220" height="200" class="column-mock" /><img src="/stylesheets/images/tags.png" width="300" height="200" class="column-mock" />
+	<%= image_tag "/stylesheets/images/categories.png", :size => "220x200", :class => "column-mock" %><%= image_tag "/stylesheets/images/tags.png", :size => "300x200", :class => "column-mock" %>
 </div>
 
 <div>
 	<input id="submit" type="submit">
 </div>
 
-<img src="/stylesheets/images/editions.png" width="960" height="200" />
+<%= image_tag "/stylesheets/images/editions.png", :size => "960x200" %>
