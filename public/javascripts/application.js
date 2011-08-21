@@ -1,0 +1,3 @@
+/*
+ * BScCode app.js
+ */

@@ -7,15 +7,15 @@
   <title>BookWeb<% if content_for? :title %> - <%= yield :title %><% end %></title>
   <%= stylesheet_link_tag "main" %>
   <%= yield :head if content_for? :head %>
-  <%= javascript_include_tag :defaults %>
-  <%= yield :scripts if content_for? :scripts %>
+  <%= yield :head_scripts if content_for? :head_scripts %>
   <%= csrf_meta_tag %>
 </head>
 
 <body id="page">
-  <%= render 'layouts/header' %>
+  <%= render "layouts/header" %>
   <%= yield %>
-  <%= render 'layouts/footer' %>
+  <%= render "layouts/footer" %>
+  <%= javascript_include_tag :defaults %>
   <%= yield :bottom_scripts if content_for? :bottom_scripts %>
 </body>
 </html>

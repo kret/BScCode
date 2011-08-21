@@ -6,11 +6,8 @@
   <%= stylesheet_link_tag "jquery-ui-1.8.11.custom", "book-add", "mocks" %>
 <% end %>
 
-<% content_for :scripts do %>
-  <%= javascript_include_tag :jquery_ui %>
-<% end %>
-
 <% content_for :bottom_scripts do %>
+  <%= javascript_include_tag :jquery_ui %>
   <%= javascript_include_tag "ui.alert", "ui.autocomplete", "book-add" %>
 <% end %>
 
@@ -33,11 +30,11 @@
 			<dt><label for="lastname">Nazwisko</label></dt><dl><input name="person[last_name]" id="lastname" type="text"></dl>
 		</div>
 	<% end %>
-	<%= image_tag "/stylesheets/images/categories.png", :size => "220x200", :class => "column-mock" %><%= image_tag "/stylesheets/images/tags.png", :size => "300x200", :class => "column-mock" %>
+	<%= image_tag "/stylesheets/images/categories_opt.png", :size => "220x200", :class => "column-mock" %><%= image_tag "/stylesheets/images/tags_opt.png", :size => "300x200", :class => "column-mock" %>
 </div>
 
 <div>
 	<input id="submit" type="submit">
 </div>
 
-<%= image_tag "/stylesheets/images/editions.png", :size => "960x200" %>
+<%= image_tag "/stylesheets/images/editions_opt.png", :size => "960x200" %>
