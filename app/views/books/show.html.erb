@@ -9,8 +9,11 @@
 <% content_for :bottom_scripts do %>
   <script>
     var bookId = <%= @book.id %>;
+    head.js(
+      '<%= javascript_path "jquery-1.5.1.min" %>',
+      '<%= javascript_path "ui.toggleButton" %>'
+    );
   </script>
-  <%= javascript_include_tag "ui.toggleButton" %>
 <% end %>
 
 
