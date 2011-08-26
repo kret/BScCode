@@ -23,11 +23,26 @@
 	};
 	refreshView.hidePreloader = function() {
 		jQuery('.preloader').fadeOut('slow');
-	}
+	};
+	refreshView.showError = function(_status, _element) {
+		refreshView.hidePreloader();
+		var message = ""
+		switch (_status) {
+			case 503:
+				message = "Wystąpił błąd komunikacji."
+				
+		}
+		if (_element) {
+			_element.append('<div class=download-error style="width: '+_element.width()+'px; height: '+_element.height()+'px;">'+message+'</div>')
+		}
+	};
+
+
 	var init = function(params) {
 		var s = this;
 
 		refreshView.showPreloader(s.parent());
+					console.log('cccccc')
 		$.ajax({
 			type: 'POST',
 			url: "/books/"+bookId+"/get_preferences",
@@ -80,7 +95,7 @@
 					refreshView.hidePreloader();
 				},
 				error: function(object, statusText, reason, m) { 
-					
+					refreshView.showError(object.status, s.parent());
 				}
 			});
 
