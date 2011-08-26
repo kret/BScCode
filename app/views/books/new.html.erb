@@ -3,17 +3,17 @@
 <% end %>
 
 <% content_for :head do %>
-  <%= stylesheet_link_tag "jquery-ui-1.8.11.custom", "book-add", "mocks" %>
+  <%= stylesheet_link_tag "jquery-ui-1.8.11.custom.min", "book-add.min", "mocks.min" %>
 <% end %>
 
 <% content_for :bottom_scripts do %>
   <script>
     head.js(
       '<%= javascript_path "jquery-1.5.1.min" %>',
-      '<%= javascript_path "jquery-ui-1.8.14.custom.min" %>',
-      '<%= javascript_path "ui.alert" %>',
-      '<%= javascript_path "ui.autocomplete" %>',
-      '<%= javascript_path "book-add" %>'
+      '<%= javascript_path "jquery-ui-1.8.14.custom.min2x" %>',
+      '<%= javascript_path "ui.alert.min" %>',
+      '<%= javascript_path "ui.autocomplete.min" %>',
+      '<%= javascript_path "book-add.min" %>'
     );
   </script>
 <% end %>

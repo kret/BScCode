@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width">
 	<meta charset="utf-8">
   <title>BookWeb<% if content_for? :title %> - <%= yield :title %><% end %></title>
-  <%= stylesheet_link_tag "main" %>
+  <%= stylesheet_link_tag "main.min" %>
   <%= yield :head if content_for? :head %>
   <%= javascript_include_tag "head.load.min" %>
   <%= yield :head_scripts if content_for? :head_scripts %>
