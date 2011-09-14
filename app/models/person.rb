@@ -4,11 +4,10 @@ class Person < ActiveRecord::Base
   has_many :contributions,  :dependent => :destroy
   has_many :books,          :through => :contributions
 
+  validates :first_name,  :presence => true
+  validates :last_name,   :presence => true
+
   scope :full_name_containing, lambda { |terms, is_full_search = false|
-    # c, h = "", {}
-    # terms.size.times do |i|
-    #   c
-    # end
     where(terms.collect { |t| "LOWER(first_name) like '#{(is_full_search ? '%' : '')}#{t}%' OR LOWER(last_name) like '#{(is_full_search ? '%' : '')}#{t}%'" }.join " OR ")
   }
 
