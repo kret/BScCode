@@ -1,10 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 3.0.10'
 gem 'sqlite3'
-gem 'rmagick'
-gem 'carrierwave'
-#gem 'rails3-jquery-autocomplete', :git => 'git://github.com/kret/rails3-jquery-autocomplete.git'
 gem 'rails3-jquery-autocomplete', :path => '/Users/andreskee/Development/MyProjects/rails3-jquery-autocomplete'
 gem 'jquery-rails'
 gem 'unicorn'
