@@ -26,9 +26,8 @@ class BooksController < ApplicationController
     user = User.find 1
     if user.id == 1
       prefs = Preference.find_for_book_and_user book, user
-      to_send = {}
-      to_send = prefs.first.attributes.except("id", "created_at", "updated_at", "book_id", "user_id") unless prefs.nil? || prefs.first.nil?
-      render :json => { :status => :ok, :preferences => to_send }
+      prefs = prefs.empty? ? Preference.new : prefs.first
+      render :json => { :status => :ok, :preferences => strip_preference(prefs) }
     else
       render :json => { :status => :invalid }
     end
@@ -50,7 +49,7 @@ class BooksController < ApplicationController
         prefs.update_attributes pv
       end
       if prefs.save
-        render :json => { :status => :ok, :preferences => prefs }
+        render :json => { :status => :ok, :preferences => strip_preference(prefs) }
       else
         render :json => { :status => :invalid, :errors => prefs.errors }
       end
@@ -58,4 +57,12 @@ class BooksController < ApplicationController
       render :json => { :status => :invalid }
     end
   end
+
+  private
+
+    def strip_preference(pref)
+      stripped = {}
+      stripped = pref.attributes.except("id", "created_at", "updated_at", "book_id", "user_id") unless pref.nil?
+    end
+
 end
