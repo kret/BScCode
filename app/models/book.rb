@@ -7,11 +7,14 @@ class Book < ActiveRecord::Base
                             :source => :person
   has_many :preferences,    :dependent => :destroy
 
-  validate :au_ids, :valid_au_ids
+  validates :title,   :presence => { :message => I18n.t('book.validation.title.blank') }
+  validates :au_ids,  :presence => { :message => I18n.t('book.validation.au_ids.blank') }
+  validate :valid_au_ids
+
   after_validation :make_builds
 
   def au_ids=(ids)
-    @au_ids = ids.collect(&:to_i).uniq if ids
+    @au_ids = ids.collect(&:to_i).uniq unless ids.blank?
   end
 
   protected

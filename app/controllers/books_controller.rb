@@ -7,11 +7,19 @@ class BooksController < ApplicationController
   def create
     @book = Book.new params[:book]
     if @book.save
-      redirect_to @book, :notice => t('book.flash.created_successfully')
+      if request.xhr?
+        render :json => { :status => :ok, :redirect_to => book_path(@book) }
+      else
+        redirect_to @book, :notice => t('book.flash.created_successfully')
+      end
     else
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render :json => { :status => :invalid, :errors => @book.errors } }
+      if request.xhr?
+        render :json => { :status => :invalid, :errors => @book.errors }
+      else
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render :json => { :status => :invalid, :errors => @book.errors } }
+        end
       end
     end
   end

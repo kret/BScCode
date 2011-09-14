@@ -3,7 +3,10 @@ pl:
     flash:
       created_successfully: "Dodano nową książkę."
     validation:
+      title:
+        blank: "Proszę podać tytuł."
       au_ids:
+        blank: "Proszę podać co najmniej jednego autora."
         record_not_valid: "Niewłaściwe ID autorów."
 
   person:
